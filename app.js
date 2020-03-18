@@ -1,3 +1,10 @@
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://swooki:Wook0118@cluster0-koake.mongodb.net/test?retryWrites=true&w=majority'
+mongoose.connect(mongoDB, {useNewUrlParser:true, useUnifiedTopology:true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
